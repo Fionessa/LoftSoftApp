@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\LoftSoftInfo.xaml.cs">
+      <DependentUpon>LoftSoftInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EmployeePage.xaml.cs">
+      <DependentUpon>EmployeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EmployeeDetailPage.xaml.cs">
+      <DependentUpon>EmployeeDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NewEmployeePage.xaml.cs">
+      <DependentUpon>NewEmployeePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

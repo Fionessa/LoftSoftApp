@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoftSoftApp.Views.EmployeeDetailPage"
+             Title="{Binding Employee.Name}">
+    <StackLayout Spacing="20" Padding="15" BackgroundColor="Black">
+        <!--<Label Text="Text:" FontSize="Medium" />
+        <Label Text="{Binding Employee.Text}" FontSize="Small"/>-->
+        
+        <Label Text="{Binding Employee.Title}" FontSize="Medium" TextColor="#ffac2a" />
+        <Image Source="{Binding Employee.PicName}" Style="" />
+        <Label Text="Description:" FontSize="Medium" />
+        <Label Text="{Binding Employee.Description}" FontSize="Small"/>
+    </StackLayout>
+</ContentPage>
