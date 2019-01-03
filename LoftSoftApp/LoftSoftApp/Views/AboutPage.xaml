@@ -10,8 +10,8 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatibile with Xamarin Live Player -->
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="Primary">#000000</Color>
+            <Color x:Key="Accent">#ffac2a</Color>
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -23,6 +23,7 @@
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <!--<Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />-->
                     <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
                 </ContentView>
             </StackLayout>
@@ -33,9 +34,9 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="AppName" FontAttributes="Bold" FontSize="22" />
+                                <Span Text="LoftSoft APP" FontAttributes="Bold" FontSize="33" />
                                 <Span Text=" " />
-                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+                                <Span Text="1.13" ForegroundColor="{StaticResource LightTextColor}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -65,7 +66,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0" Text="Learn more" Command="{Binding OpenWebCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Weitere Infos zu Loftsoft" Command="{Binding OpenWebCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
             </StackLayout>
         </ScrollView>
     </Grid>

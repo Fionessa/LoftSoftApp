@@ -11,7 +11,7 @@ namespace LoftSoftApp.ViewModels
         {
             Title = "Über Loftsoft";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("http://loftsoft.ch")));
         }
 
         public ICommand OpenWebCommand { get; }

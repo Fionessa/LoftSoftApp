@@ -29,6 +29,21 @@
             </x:Arguments>
         </NavigationPage>
 
+        <NavigationPage Title="Referenzen">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_about.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:LoftSoftReferences />
+                <!--  
+                EmployeePage
+                -->
+            </x:Arguments>
+        </NavigationPage>
+
+
         <NavigationPage Title="Über uns">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

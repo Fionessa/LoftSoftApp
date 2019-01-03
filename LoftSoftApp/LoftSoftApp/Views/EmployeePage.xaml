@@ -14,7 +14,7 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="10" >
+        <StackLayout Padding="5" >
             <ListView x:Name="EmployeeListView" 
                 ItemsSource="{Binding Employees}"
                 VerticalOptions="FillAndExpand"
@@ -28,11 +28,11 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
+                            <StackLayout Padding="15">
                                 <Label Text="{Binding Text}" TextColor="Blue"
                        LineBreakMode="NoWrap" 
                        Style="{DynamicResource ListItemTextStyle}" 
-                       FontSize="16" />
+                       FontSize="20" />
                                 <Label Text="{Binding Name}"  TextColor="#ffac2a"
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LoftSoftApp.Views.LoftSoftInfo"
+             x:Class="LoftSoftApp.Views.LoftSoftReferences"
               Title="{Binding Title}"
              x:Name="BrowseLoftSoftInfo">
     <!--<ContentPage.ToolbarItems>
@@ -34,17 +34,17 @@
                 <!--<ColumnDefinition Width="*" />-->
             </Grid.ColumnDefinitions>
 
-            <Label Text="Softwareentwicklung" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="0" Grid.Column="0" />
-            <Label Text="Ein wenig Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="1" Grid.Column="0" />
-            <Label Text="Projektmanagement" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="2" Grid.Column="0" />
+            <Label Text="Referenzen" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="0" Grid.Column="0" />
+            <Label Text="Dies sind unsere Kunden, wir sind ihnen sehr verbunden:" TextColor="#ffac2a" Grid.Row="1" Grid.Column="0" />
+            <Label Text="Referenz 1" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="2" Grid.Column="0" />
             <Label Text="Ein wenig mehr Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="3" Grid.Column="0" />
-            <Label Text="Prozessdesign" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="4" Grid.Column="0" />
+            <Label Text="Referenz 2" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="4" Grid.Column="0" />
             <Label Text="Und ein wenig Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="5" Grid.Column="0" />
-            <Label Text="Beratung" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="6" Grid.Column="0" />
+            <Label Text="Referenz 3" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="6" Grid.Column="0" />
             <Label Text="Wieder ein wenig Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="7" Grid.Column="0" />
-            <Label Text="Machbarkeitsstudien" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="8" Grid.Column="0" />
+            <Label Text="Referenz 4" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="8" Grid.Column="0" />
             <Label Text="Weiterer Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="9" Grid.Column="0" />
-            <Label Text="Support" TextColor="#ffac2a" Grid.Row="10" TextDecorations="Underline" Grid.Column="0" />
+            <Label Text="Referenz 5" TextColor="#ffac2a" Grid.Row="10" TextDecorations="Underline" Grid.Column="0" />
             <Label Text="Letzter Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="11" Grid.Column="0" />
 
         </Grid>
