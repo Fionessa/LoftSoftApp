@@ -13,6 +13,7 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>-->
+    
     <ContentPage.Content>
         <Grid BackgroundColor="Black">
             <Grid.RowDefinitions>
