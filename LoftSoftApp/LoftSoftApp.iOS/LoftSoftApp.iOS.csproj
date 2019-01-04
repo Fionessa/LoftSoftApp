@@ -145,4 +145,7 @@
       <Name>LoftSoftApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\loftsoft_bild.jpg" />
+  </ItemGroup>
 </Project>
