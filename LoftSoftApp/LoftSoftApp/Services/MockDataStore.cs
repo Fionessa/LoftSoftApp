@@ -18,7 +18,7 @@ namespace LoftSoftApp.Services
                 new Employee { Id = Guid.NewGuid().ToString(), Name = "Beat Bianchi", PicName="https://loftsoft.ch/assets/team/beat-bianchi.jpg", Title="Chef", Description="Baumeisterlicher Karateka" },
                 new Employee { Id = Guid.NewGuid().ToString(), Name = "André Achermann", PicName="https://loftsoft.ch/assets/team/andre-achermann.jpg", Title="No en Chef", Description="Forschender Schnüffelhund" },
                 new Employee { Id = Guid.NewGuid().ToString(), Name = "Raphael Brun", PicName="https://loftsoft.ch/assets/team/raphael-brun.jpg", Title="Und widr en Chef", Description="Bahnbrechender Unihockeyaner" },
-                new Employee { Id = Guid.NewGuid().ToString(), Name = "Pascal Pfister", PicName="https://loftsoft.ch/assets/team/pascal-pfister.jpg", Title="Ken Chef", Description="Dauerzockender Pfotograf" },
+                new Employee { Id = Guid.NewGuid().ToString(), Name = "Pascal Pfister", PicName="https://loftsoft.ch/assets/team/pascal-pfister.jpg", Title="Ken Chef, Ken Block?", Description="Dauerzockender Pfotograf" },
                 new Employee { Id = Guid.NewGuid().ToString(), Name = "Hanspeter Vogt", PicName="https://loftsoft.ch/assets/team/hanspeter-vogt.jpg", Title="O ken Chef", Description="Harpunierender Wandervogel" },
                 new Employee { Id = Guid.NewGuid().ToString(), Name = "Matthias Tschumi", PicName="https://loftsoft.ch/assets/team/matthias-tschumi.jpg", Title="Kuchichef", Description="Heimwerkender Familientyp" },
             };

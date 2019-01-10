@@ -12,6 +12,8 @@ namespace LoftSoftApp.Views
         public AboutPage()
         {
             InitializeComponent();
+
+            CameraButton.Clicked += CameraButton_Clicked;
         }
 
         private void CheckBattery_Clicked(object sender, EventArgs e)
@@ -25,6 +27,19 @@ namespace LoftSoftApp.Views
         {
             (sender as Button).Text = "I was just pressed!";
         }
+
+        private void CheckLamp_Pressed(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "I was just pressed!";
+        }
+
+        private void CheckLamp_Clicked(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "You clicked me!";
+
+            LampOut();
+        }
+        
 
         public async void BatteryTest()
         {
@@ -93,15 +108,83 @@ namespace LoftSoftApp.Views
             // Device Type (Physical)
             var deviceType = DeviceInfo.DeviceType;
 
-            // @47.4771515,8.3094978,19
+            this.lblBattery.Text = state.ToString();
+            this.lblDeviceInfo.Text = manufacturer;
 
-            var location = new Location(47.4771515, 8.3094978);
-            var options = new MapLaunchOptions { Name = "Bahnhofstrasse 31, 5400 Baden" };
 
-            await Map.OpenAsync(location, options);
+            // 47.4771515,8.3094978
+            // 47.4766279, 8.3089182
+
+            //var location = new Location(47.4766279, 8.3089182);
+            //var options = new MapLaunchOptions { Name = "Bahnhofstrasse 31, 5400 Baden" };
+
+            //await Map.OpenAsync(location, options);
+
+            try
+            {
+                // Turn On
+                await Flashlight.TurnOnAsync();
+
+                Vibration.Vibrate();
+
+                // Or use specified time
+                var duration = TimeSpan.FromSeconds(2);
+                Vibration.Vibrate(duration);
+
+                // Turn Off
+                // await Flashlight.TurnOffAsync();
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+                fnsEx.ToString();
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+                pEx.ToString();
+            }
+            catch (Exception ex)
+            {
+                // Unable to turn on/off flashlight
+                ex.ToString();
+            }
 
         }
 
+        public async void LampOut()
+        {
+
+            try
+            {
+                // Turn Off
+                await Flashlight.TurnOffAsync();
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+                fnsEx.ToString();
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+                pEx.ToString();
+            }
+            catch (Exception ex)
+            {
+                // Unable to turn on/off flashlight
+                ex.ToString();
+            }
+
+        }
+
+        private async void CameraButton_Clicked(object sender, EventArgs e)
+        {
+            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+
+            if (photo != null)
+                PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });
+        }
 
     }
 }

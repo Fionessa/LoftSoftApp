@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoftSoftApp.Views.LoftSoftReferences"
               Title="{Binding Title}"
-             x:Name="BrowseLoftSoftInfo">
+             x:Name="BrowseLoftSoftInfo" Icon="Hamburger.png">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Add again" Clicked="AddLoftSoftInfo_Clicked">
             <ToolbarItem.Icon>

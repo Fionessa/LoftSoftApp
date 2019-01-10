@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoftSoftApp.Views.AboutPage"
              xmlns:vm="clr-namespace:LoftSoftApp.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}" Icon="Hamburger.png">
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
@@ -31,7 +31,7 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label FontSize="22">
+                <!--<Label FontSize="22">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
@@ -66,12 +66,27 @@
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
-                </Label>
+                </Label>-->
                 <Button Margin="0,10,0,0" Text="Weitere Infos zu Loftsoft" Command="{Binding OpenWebCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
 
                 <!--<Button Margin="0,10,0,0" Text="Check Battery" Command="{Binding Path=CheckBattery}" BackgroundColor="{StaticResource Primary}" TextColor="White" />-->
 
-                <Button Margin="0,10,0,0" Text="Check Battery" Clicked="CheckBattery_Clicked" Pressed="CheckBattery_Pressed" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Check Battery, Lampe an" Clicked="CheckBattery_Clicked" Pressed="CheckBattery_Pressed" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Taschenlampe aus" Clicked="CheckLamp_Clicked" Pressed="CheckLamp_Pressed" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+
+                <Label Text="" x:Name="lblBattery" TextColor="#ffac2a" />
+                <Label Text="" x:Name="lblDeviceInfo" TextColor="#ffac2a" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Image x:Name="PhotoImage" />
+                    <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" />
+                </Grid>
+
             </StackLayout>
         </ScrollView>
     </Grid>

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoftSoftApp.Views.EmployeePage"
               Title="{Binding Title}"
-             x:Name="BrowseEmployeePage">
+             x:Name="BrowseEmployeePage" 
+             Icon="Hamburger.png">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddEmployee_Clicked">
             <ToolbarItem.Icon>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoftSoftApp.Views.EmployeeDetailPage"
-             Title="{Binding Employee.Name}">
+             Title="{Binding Employee.Name}" Icon="Hamburger.png">
     <StackLayout Spacing="20" Padding="15" BackgroundColor="Black">
         <!--<Label Text="Text:" FontSize="Medium" />
         <Label Text="{Binding Employee.Text}" FontSize="Small"/>-->
