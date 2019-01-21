@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoftSoftApp.Views.AboutPage"
              xmlns:vm="clr-namespace:LoftSoftApp.ViewModels"
+             xmlns:telerikBarcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              Title="{Binding Title}" Icon="Hamburger.png">
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -71,11 +73,26 @@
 
                 <!--<Button Margin="0,10,0,0" Text="Check Battery" Command="{Binding Path=CheckBattery}" BackgroundColor="{StaticResource Primary}" TextColor="White" />-->
 
-                <Button Margin="0,10,0,0" Text="Check Battery, Lampe an" Clicked="CheckBattery_Clicked" Pressed="CheckBattery_Pressed" BackgroundColor="{StaticResource Primary}" TextColor="White" />
-                <Button Margin="0,10,0,0" Text="Taschenlampe aus" Clicked="CheckLamp_Clicked" Pressed="CheckLamp_Pressed" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Check Battery, Lampe an" Clicked="CheckBattery_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Taschenlampe aus" Clicked="CheckLamp_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <!--Pressed="CheckLamp_Pressed"-->
 
-                <Label Text="" x:Name="lblBattery" TextColor="#ffac2a" />
-                <Label Text="" x:Name="lblDeviceInfo" TextColor="#ffac2a" />
+                <!--<Button Margin="0,10,0,0" Text="Call Hampe" Clicked="CallHampe_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White" />-->
+
+              <telerikInput:RadButton x:Name="buttonBackground" TextColor="White"
+                        Text="Click Hampe!"
+                        Clicked="CallHampe_Clicked"
+                        BackgroundImage="http://perfect-pictures.ch/pics/portraits/tanja/tanja-city-shooting-2018-034-lrg.jpg"  />
+
+
+              <Label Text="Battery" x:Name="lblBattery" TextColor="#ffac2a" />
+                <Label Text="Device" x:Name="lblDeviceInfo" TextColor="#ffac2a" />
+                <!--<Label Text="Gyro" x:Name="lblGyroscope" TextColor="#ffac2a" />
+                <Label Text="Magnet" x:Name="lblMagnetometer" TextColor="#ffac2a" />
+                <Label Text="Accel" x:Name="lblAccelerometer" TextColor="#ffac2a" />
+                <Label Text="Orient" x:Name="lblOrientation" TextColor="#ffac2a" />-->
+                <Label Text="Wo bin ich gerade:" x:Name="lblWhereAmI" TextColor="#ffac2a" />
+
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -87,7 +104,26 @@
                     <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" />
                 </Grid>
 
+               <DatePicker MinimumDate="01/01/2018"
+            MaximumDate="12/31/2018"
+            Date="06/21/2018" />
+
+                <TimePicker
+                    Time="11:00:00"
+                    Format="T"
+                    />
+
+
+                <telerikBarcode:RadBarcode x:Name="barcode" 
+                       Value="https://www.telerik.com/xamarin-ui"
+                       WidthRequest="100" HeightRequest="100">
+                    <telerikBarcode:RadBarcode.Symbology>
+                        <telerikBarcode:QRCode SizingMode="Stretch" />
+                    </telerikBarcode:RadBarcode.Symbology>
+                </telerikBarcode:RadBarcode>
+
             </StackLayout>
+
         </ScrollView>
     </Grid>
 </ContentPage>

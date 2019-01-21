@@ -1,22 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lsmodel="clr-namespace:LoftSoftApp.Models"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              x:Class="LoftSoftApp.Views.LoftSoftReferences"
               Title="{Binding Title}"
              x:Name="BrowseLoftSoftInfo" Icon="Hamburger.png">
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add again" Clicked="AddLoftSoftInfo_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>-->
     
     <ContentPage.Content>
         <Grid BackgroundColor="Black">
-            <Grid.RowDefinitions>
+
+            <telerikDataControls:RadTreeView x:Name="treeView" ItemsSource="{Binding Source}">
+                <telerikDataControls:TreeViewDescriptor DisplayMemberPath="Name"
+                                            ItemsSourcePath="Children"
+                                            TargetType="{x:Type lsmodel:Item}" />
+            </telerikDataControls:RadTreeView>
+
+
+
+            <!--<telerikInput:RadCalendar x:Name="calendar"/>-->
+
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -32,7 +37,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <!--<ColumnDefinition Width="*" />-->
+                --><!--<ColumnDefinition Width="*" />--><!--
             </Grid.ColumnDefinitions>
 
             <Label Text="Referenzen" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="0" Grid.Column="0" />
@@ -46,39 +51,9 @@
             <Label Text="Referenz 4" TextColor="#ffac2a" TextDecorations="Underline" Grid.Row="8" Grid.Column="0" />
             <Label Text="Weiterer Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="9" Grid.Column="0" />
             <Label Text="Referenz 5" TextColor="#ffac2a" Grid.Row="10" TextDecorations="Underline" Grid.Column="0" />
-            <Label Text="Letzter Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="11" Grid.Column="0" />
+            <Label Text="Letzter Text zum Anzeigen in der gleichen Spalte. Mal schauen wie das aussieht. " TextColor="#ffac2a" Grid.Row="11" Grid.Column="0" />-->
 
         </Grid>
         
-        
-        <!--<StackLayout Padding="10" >
-            <ListView x:Name="EmployeeCopyListView" 
-                ItemsSource="{Binding Employees}"
-                VerticalOptions="FillAndExpand"
-                 HasUnevenRows="true" 
-                 BackgroundColor="Black"
-                 RefreshCommand="{Binding LoadEmployeesCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                 CachingStrategy="RecycleElement"
-                 ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Text}" TextColor="Blue"
-                       LineBreakMode="NoWrap" 
-                       Style="{DynamicResource ListItemTextStyle}" 
-                       FontSize="16" />
-                                <Label Text="{Binding Name}"  TextColor="#ffac2a"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

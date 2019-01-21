@@ -9,11 +9,33 @@ namespace LoftSoftApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AboutPage : ContentPage
     {
+
+        // Set speed delay for monitoring changes.
+        SensorSpeed speed = SensorSpeed.UI;
+
         public AboutPage()
         {
             InitializeComponent();
 
             CameraButton.Clicked += CameraButton_Clicked;
+            //Magnetometer.ReadingChanged += Magnetometer_ReadingChanged;
+            //Gyroscope.ReadingChanged += Gyroscope_ReadingChanged;
+            //OrientationSensor.ReadingChanged += OrientationSensor_ReadingChanged;
+            //Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
+
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // funktioniert nicht beim Simulator, wirft gleich Exception...
+            //if (!OrientationSensor.IsMonitoring) { OrientationSensor.Start(SensorSpeed.UI); }
+            //if (!Magnetometer.IsMonitoring) { Magnetometer.Start(SensorSpeed.UI); }
+            //if (!Accelerometer.IsMonitoring) { Accelerometer.Start(SensorSpeed.UI); }
+
+
+
         }
 
         private void CheckBattery_Clicked(object sender, EventArgs e)
@@ -21,17 +43,18 @@ namespace LoftSoftApp.Views
             (sender as Button).Text = "You clicked me!";
 
             BatteryTest();
+            WhereAmI();
         }
 
-        private void CheckBattery_Pressed(object sender, EventArgs e)
-        {
-            (sender as Button).Text = "I was just pressed!";
-        }
+        //private void CheckBattery_Pressed(object sender, EventArgs e)
+        //{
+        //    (sender as Button).Text = "I was just pressed!";
+        //}
 
-        private void CheckLamp_Pressed(object sender, EventArgs e)
-        {
-            (sender as Button).Text = "I was just pressed!";
-        }
+        //private void CheckLamp_Pressed(object sender, EventArgs e)
+        //{
+        //    (sender as Button).Text = "I was just pressed!";
+        //}
 
         private void CheckLamp_Clicked(object sender, EventArgs e)
         {
@@ -39,7 +62,16 @@ namespace LoftSoftApp.Views
 
             LampOut();
         }
-        
+
+        private void CallHampe_Clicked(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "You clicked me!";
+
+            CallHampe();
+        }
+        public void CallHampe() { 
+            PhoneDialer.Open("+41 56 200 05 36");
+        }
 
         public async void BatteryTest()
         {
@@ -112,13 +144,13 @@ namespace LoftSoftApp.Views
             this.lblDeviceInfo.Text = manufacturer;
 
 
-            // 47.4771515,8.3094978
-            // 47.4766279, 8.3089182
+            // 47.47683715
+            //  8.30770212
 
-            //var location = new Location(47.4766279, 8.3089182);
-            //var options = new MapLaunchOptions { Name = "Bahnhofstrasse 31, 5400 Baden" };
+            var location = new Location(47.47683715, 8.30770212);
+            var options = new MapLaunchOptions { Name = "Bahnhofstrasse 31, 5400 Baden" };
 
-            //await Map.OpenAsync(location, options);
+            await Map.OpenAsync(location, options);
 
             try
             {
@@ -152,6 +184,17 @@ namespace LoftSoftApp.Views
 
         }
 
+
+        public async void WhereAmI()
+        {
+            var location = await Geolocation.GetLastKnownLocationAsync();
+
+            if (location != null)
+            {
+                lblWhereAmI.Text = ($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+            }
+        }
+
         public async void LampOut()
         {
 
@@ -175,16 +218,63 @@ namespace LoftSoftApp.Views
                 // Unable to turn on/off flashlight
                 ex.ToString();
             }
-
         }
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
-            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() {
+                SaveToAlbum = true,
+                Directory = "Pascal's Buch",
+                Name = Guid.NewGuid().ToString() + ".jpg",
+                DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
+            });
 
             if (photo != null)
                 PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });
         }
+
+        //void Magnetometer_ReadingChanged(object sender, MagnetometerChangedEventArgs e)
+        //{
+        //    var data = e.Reading;
+        //    // Process MagneticField X, Y, and Z
+        //    lblMagnetometer.Text = ($"Magnetometer Reading: X: {data.MagneticField.X}, Y: {data.MagneticField.Y}, Z: {data.MagneticField.Z}");
+        //}
+
+        public void ToggleMagnetometer()
+        {
+            if (Magnetometer.IsMonitoring)
+                Magnetometer.Stop();
+            else
+                Magnetometer.Start(speed);
+        }
+
+        //void Gyroscope_ReadingChanged(object sender, GyroscopeChangedEventArgs e)
+        //{
+        //    var data = e.Reading;
+        //    // Process Angular Velocity X, Y, and Z reported in rad/s
+        //    lblGyroscope.Text = ($"Gyroscope Reading: X: {data.AngularVelocity.X}, Y: {data.AngularVelocity.Y}, Z: {data.AngularVelocity.Z}");
+        //}
+
+        public void ToggleGyroscope()
+        {
+            if (Gyroscope.IsMonitoring)
+                Gyroscope.Stop();
+            else
+                Gyroscope.Start(speed);
+        }
+
+        //private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+        //{
+        //    var data = e.Reading;
+        //    lblAccelerometer.Text = ($"Accelerometer Reading: X: {data.Acceleration.X}, Y: {data.Acceleration.Y}, Z: {data.Acceleration.Z}");
+        //}
+
+        //private void OrientationSensor_ReadingChanged(object sender, OrientationSensorChangedEventArgs e)
+        //{
+        //    var data = e.Reading;
+        //    lblOrientation.Text = ($"Orientation Reading: X: {data.Orientation.X}, Y: {data.Orientation.Y}, Z: {data.Orientation.Z}, W: {data.Orientation.W}");
+        //}
+
 
     }
 }

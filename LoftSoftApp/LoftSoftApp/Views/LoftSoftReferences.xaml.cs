@@ -10,37 +10,44 @@ using Xamarin.Forms.Xaml;
 using LoftSoftApp.Models;
 using LoftSoftApp.Views;
 using LoftSoftApp.ViewModels;
+using Telerik.XamarinForms.Input;
+
 
 namespace LoftSoftApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoftSoftReferences : ContentPage
     {
-        LoftSoftReferencesViewModel viewModel;
+        //LoftSoftReferencesViewModel viewModel;
+
+        //ItemViewModel itemViewModel;
 
         public LoftSoftReferences()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new LoftSoftReferencesViewModel();
+            //BindingContext = viewModel = new LoftSoftReferencesViewModel();
+
+            this.BindingContext = new ItemViewModel();
+
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            var employee = args.SelectedItem as Employee;
-            if (employee == null)
-                return;
+        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        //{
+        //    var employee = args.SelectedItem as Employee;
+        //    if (employee == null)
+        //        return;
 
-            await Navigation.PushAsync(new EmployeeDetailPage(new EmployeeDetailViewModel(employee)));
+        //    await Navigation.PushAsync(new EmployeeDetailPage(new EmployeeDetailViewModel(employee)));
 
-            // Manually deselect item.
-            //EmployeeCopyListView.SelectedItem = null;
-        }
+        //    // Manually deselect item.
+        //    //EmployeeCopyListView.SelectedItem = null;
+        //}
         
-        async void AddLoftSoftInfo_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewEmployeePage()));
-        }
+        //async void AddLoftSoftInfo_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushModalAsync(new NavigationPage(new NewEmployeePage()));
+        //}
 
         protected override void OnAppearing()
         {
